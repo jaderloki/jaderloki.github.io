@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Bootstrap demo</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class="container-fluid vh-100 d-flex flex-column">
@@ -14,7 +16,7 @@
 				<div class="col bg-dark px-0">
 					<nav class="navbar navbar-expand-lg navbar-dark">
 						<div class="container-fluid">
-							<a class="navbar-brand" href="#">Navbar</a>
+							<a class="navbar-brand" href="https://jaderloki.github.io/">Jader Lemes</a>
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 							</button>
@@ -83,22 +85,73 @@
 					">
 						<div class="col-auto mx-auto pb-5">
 							<div class="row">
-								<div class="col-auto mx-auto position-relative">
+								<div class="col-auto mx-auto position-relative imagemJader">
 									<div class="row">
 										<div class="col-auto m-auto" style="
 											padding: 4rem;
 										">
-											<img src="portfolio.png" class="img-fluid rounded-circle">
+											<img src="portfolio.png" class="img-fluid rounded-circle" height="200" width="200">
 										</div>
 									</div>
-									<div class="position-absolute" style="
+									<div class="position-absolute portfolioBorder" style="
 										top: 0%;
 										left: 0%;
 										height: 100%;
 										width: 100%;
-									">
-										<img src="portfolioBorder.png" class="img-fluid">
+									" data-parallax="15">
+										<img src="portfolioBorder1Orange.png" class="img-fluid">
 									</div>
+									<div class="position-absolute portfolioBorder" style="
+										top: 0%;
+										left: 0%;
+										height: 100%;
+										width: 100%;
+									" data-parallax="-7.5">
+										<img src="portfolioBorder2Orange.png" class="img-fluid">
+									</div>
+									<div class="position-absolute portfolioBorder" style="
+										top: 0%;
+										left: 0%;
+										height: 100%;
+										width: 100%;
+									" data-parallax="9.5">
+										<img src="portfolioBorder1White.png" class="img-fluid">
+									</div>
+									<div class="position-absolute portfolioBorder" style="
+										top: 0%;
+										left: 0%;
+										height: 100%;
+										width: 100%;
+									" data-parallax="-13">
+										<img src="portfolioBorder2White.png" class="img-fluid">
+									</div>
+									<script>
+										$(document).on("mousemove", function(){
+											$(".portfolioBorder").each(function(){
+												var position = $(this).data("parallax");
+												var rect = $(".imagemJader")[0].getBoundingClientRect();
+												var rectXCentro = (rect.right - rect.left) / 2 + rect.left;
+												var rectYCentro = (rect.bottom - rect.top) / 2 + rect.top;
+												
+												var posicaoMouseX = ((event.pageX - rectXCentro) * 100) / window.innerWidth;
+												//if(rectXCentro > posicaoMouseX){
+												//	posicaoMouseX = posicaoMouseX * -1;
+												//}
+												
+												var posicaoMouseY = ((event.pageY - rectYCentro) * 100) / window.innerHeight;
+												//if(rectYCentro > posicaoMouseY){
+												//	posicaoMouseY = posicaoMouseY * -1;
+												//}
+												console.log(event.pageX, event.pageY, rectXCentro, rectYCentro);
+												var x = (posicaoMouseX * position) / 90;
+												var y = (posicaoMouseY * position) / 90;
+												console.log("posicaoMouseX", posicaoMouseX, "posicaoMouseY", posicaoMouseY, "x", x, "y", y);
+												//
+												//console.log(rect.top, rect.right, rect.bottom, rect.left);
+												$(this).css("transform", "translateX("+x+"px) translateY("+y+"px)");
+											});
+										});
+									</script>
 								</div>
 							</div>
 							<div class="row">
@@ -122,6 +175,5 @@
 				</div>
 			</div>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>
