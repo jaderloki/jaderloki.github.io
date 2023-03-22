@@ -54,115 +54,125 @@
 					</nav>
 				</div>
 			</div>
-			<div class="row flex-grow-1">
-				<div class="col d-flex flex-column bg-light h-100 position-relative">
-					<div class="position-absolute bg-dark h-100 w-100" style="
-						top: 0%;
-						left: 0%;
-						clip-path: polygon(50% 100%, 0% 0, 100% 0);
-						z-index: 0;
-					"></div>
-					<div class="position-absolute bg-white h-100 w-100" style="
-						top: -1.5%;
-						left: 0%;
-						clip-path: polygon(50% 100%, 0% 0, 100% 0);
-						z-index: 1;
-					"></div>
-					<div class="position-absolute bg-dark h-100 w-100" style="
-						top: -3%;
-						left: 0%;
-						clip-path: polygon(50% 100%, 0% 0, 100% 0);
-						z-index: 2;
-					"></div>
-					<div class="position-absolute bg-white w-100" style="
-						top: 0%;
-						left: 0%;
-						height: 1%;
-						z-index: 1;
-					"></div>
-					<div class="row h-100" style="
-						z-index: 11;
-					">
-						<div class="col-auto mx-auto pb-5">
-							<div class="row">
-								<div class="col-auto mx-auto position-relative imagemJader">
+			<div class="row flex-grow-1  position-relative bg-white">
+				<div class="col">
+					<div class="row">
+						<div class="col d-flex flex-column h-100">
+							<div class="position-absolute bg-dark h-100 w-100" style="
+								top: 0%;
+								left: 0%;
+								clip-path: polygon(50% 100%, 0% 0, 100% 0);
+								z-index: 0;
+							"></div>
+							<div class="position-absolute bg-white h-100 w-100" style="
+								top: -1.5%;
+								left: 0%;
+								clip-path: polygon(50% 100%, 0% 0, 100% 0);
+								z-index: 1;
+							"></div>
+							<div class="position-absolute bg-dark h-100 w-100" style="
+								top: -3%;
+								left: 0%;
+								clip-path: polygon(50% 100%, 0% 0, 100% 0);
+								z-index: 2;
+							"></div>
+							<div class="position-absolute bg-white w-100" style="
+								top: 0%;
+								left: 0%;
+								height: 1%;
+								z-index: 1;
+							"></div>
+							<div class="row h-100" style="
+								z-index: 11;
+							">
+								<div class="col-auto mx-auto">
 									<div class="row">
-										<div class="col-auto m-auto" style="
-											padding: 4rem;
-										">
-											<img src="portfolio.png" class="img-fluid rounded-circle" height="200" width="200">
+										<div class="col-auto mx-auto position-relative imagemJader">
+											<div class="row">
+												<div class="col-auto m-auto" style="
+													padding: 4rem;
+												">
+													<img src="portfolio.png" class="img-fluid rounded-circle" height="200" width="200">
+												</div>
+											</div>
+											<div class="position-absolute portfolioBorder" style="
+												top: 0%;
+												left: 0%;
+												height: 100%;
+												width: 100%;
+												z-index: 11;
+											" data-parallax="7.5">
+												<img src="portfolioBorder1Orange.png" class="img-fluid">
+											</div>
+											<div class="position-absolute portfolioBorder" style="
+												top: 0%;
+												left: 0%;
+												height: 100%;
+												width: 100%;
+												z-index: 11;
+											" data-parallax="-3">
+												<img src="portfolioBorder2Orange.png" class="img-fluid">
+											</div>
+											<div class="position-absolute portfolioBorder" style="
+												top: 0%;
+												left: 0%;
+												height: 100%;
+												width: 100%;
+												z-index: 11;
+											" data-parallax="4.5">
+												<img src="portfolioBorder1White.png" class="img-fluid">
+											</div>
+											<div class="position-absolute portfolioBorder" style="
+												top: 0%;
+												left: 0%;
+												height: 100%;
+												width: 100%;
+												z-index: 11;
+											" data-parallax="-2">
+												<img src="portfolioBorder2White.png" class="img-fluid">
+											</div>
+											<script>
+												$(document).on("mousemove", function(){
+													$(".portfolioBorder").each(function(){
+														var position = $(this).data("parallax");
+														var rect = $(".imagemJader")[0].getBoundingClientRect();
+														var rectXCentro = (rect.right - rect.left) / 2 + rect.left;
+														var rectYCentro = (rect.bottom - rect.top) / 2 + rect.top;
+														
+														var posicaoMouseX = ((event.pageX - rectXCentro) * 100) / window.innerWidth;
+														//if(rectXCentro > posicaoMouseX){
+														//	posicaoMouseX = posicaoMouseX * -1;
+														//}
+														
+														var posicaoMouseY = ((event.pageY - rectYCentro) * 100) / window.innerHeight;
+														//if(rectYCentro > posicaoMouseY){
+														//	posicaoMouseY = posicaoMouseY * -1;
+														//}
+														console.log(event.pageX, event.pageY, rectXCentro, rectYCentro);
+														var x = (posicaoMouseX * position) / 90;
+														var y = (posicaoMouseY * position) / 90;
+														console.log("posicaoMouseX", posicaoMouseX, "posicaoMouseY", posicaoMouseY, "x", x, "y", y);
+														//
+														//console.log(rect.top, rect.right, rect.bottom, rect.left);
+														$(this).css("transform", "translateX("+y+"px) translateY("+x+"px)");
+													});
+												});
+											</script>
 										</div>
 									</div>
-									<div class="position-absolute portfolioBorder" style="
-										top: 0%;
-										left: 0%;
-										height: 100%;
-										width: 100%;
-										z-index: 11;
-									" data-parallax="7.5">
-										<img src="portfolioBorder1Orange.png" class="img-fluid">
+									<div class="row">
+										<div class="col-auto mx-auto h1 text-white">
+											Jader Lemes
+										</div>
 									</div>
-									<div class="position-absolute portfolioBorder" style="
-										top: 0%;
-										left: 0%;
-										height: 100%;
-										width: 100%;
-										z-index: 11;
-									" data-parallax="-3">
-										<img src="portfolioBorder2Orange.png" class="img-fluid">
-									</div>
-									<div class="position-absolute portfolioBorder" style="
-										top: 0%;
-										left: 0%;
-										height: 100%;
-										width: 100%;
-										z-index: 11;
-									" data-parallax="4.5">
-										<img src="portfolioBorder1White.png" class="img-fluid">
-									</div>
-									<div class="position-absolute portfolioBorder" style="
-										top: 0%;
-										left: 0%;
-										height: 100%;
-										width: 100%;
-										z-index: 11;
-									" data-parallax="-2">
-										<img src="portfolioBorder2White.png" class="img-fluid">
-									</div>
-									<script>
-										$(document).on("mousemove", function(){
-											$(".portfolioBorder").each(function(){
-												var position = $(this).data("parallax");
-												var rect = $(".imagemJader")[0].getBoundingClientRect();
-												var rectXCentro = (rect.right - rect.left) / 2 + rect.left;
-												var rectYCentro = (rect.bottom - rect.top) / 2 + rect.top;
-												
-												var posicaoMouseX = ((event.pageX - rectXCentro) * 100) / window.innerWidth;
-												//if(rectXCentro > posicaoMouseX){
-												//	posicaoMouseX = posicaoMouseX * -1;
-												//}
-												
-												var posicaoMouseY = ((event.pageY - rectYCentro) * 100) / window.innerHeight;
-												//if(rectYCentro > posicaoMouseY){
-												//	posicaoMouseY = posicaoMouseY * -1;
-												//}
-												console.log(event.pageX, event.pageY, rectXCentro, rectYCentro);
-												var x = (posicaoMouseX * position) / 90;
-												var y = (posicaoMouseY * position) / 90;
-												console.log("posicaoMouseX", posicaoMouseX, "posicaoMouseY", posicaoMouseY, "x", x, "y", y);
-												//
-												//console.log(rect.top, rect.right, rect.bottom, rect.left);
-												$(this).css("transform", "translateX("+y+"px) translateY("+x+"px)");
-											});
-										});
-									</script>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-auto mx-auto h1 text-white">
-									Jader Lemes
-								</div>
-							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto mx-auto" style="
+							z-index: 99;
+						">
 							<div class="row">
 								<div class="col-auto h5 text-white border-end border-white">
 									PHP Developer
