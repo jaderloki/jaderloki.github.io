@@ -95,52 +95,33 @@
 													<img src="portfolio.png" class="img-fluid rounded-circle" height="200" width="200">
 												</div>
 											</div>
-											<div class="position-absolute portfolioBorder" style="
+											<div class="position-absolute portfolioBorder portfolioBorder1Circle" style="
 												top: 0%;
 												left: 0%;
 												height: 100%;
 												width: 100%;
 												z-index: 11;
-												transition: 0.25s;
-											" data-parallax="7.5">
-												<img src="portfolioBorder1Orange.png" class="img-fluid">
+												transition: 1s;
+											" data-direction="75">
+												<img src="portfolioBorder1Circle.png" class="img-fluid">
 											</div>
-											<div class="position-absolute portfolioBorder" style="
+											<div class="position-absolute portfolioBorder portfolioBorder2Circle" style="
 												top: 0%;
 												left: 0%;
 												height: 100%;
 												width: 100%;
 												z-index: 11;
-												transition: 0.25s;
-											" data-parallax="-3">
-												<img src="portfolioBorder2Orange.png" class="img-fluid">
-											</div>
-											<div class="position-absolute portfolioBorder" style="
-												top: 0%;
-												left: 0%;
-												height: 100%;
-												width: 100%;
-												z-index: 11;
-												transition: 0.25s;
-											" data-parallax="4.5">
-												<img src="portfolioBorder1White.png" class="img-fluid">
-											</div>
-											<div class="position-absolute portfolioBorder" style="
-												top: 0%;
-												left: 0%;
-												height: 100%;
-												width: 100%;
-												z-index: 11;
-												transition: 0.25s;
-											" data-parallax="-2">
-												<img src="portfolioBorder2White.png" class="img-fluid">
+												transition: 1s;
+											" data-direction="-25">
+												<img src="portfolioBorder2Circle.png" class="img-fluid">
 											</div>
 											<script>
 												$(document).on("mousewheel", function(){
-													$(".portfolioBorder ").css("transform", "translateX(0px) translateY(0px)");
+													$(".portfolioBorder ").css("rotate", "0deg");
 												});
 												
 												$(document).on("mousemove", function(){
+													/**
 													$(".portfolioBorder").each(function(){
 														var position = $(this).data("parallax");
 														var rect = $(".imagemJader")[0].getBoundingClientRect();
@@ -164,6 +145,22 @@
 														//console.log(rect.top, rect.right, rect.bottom, rect.left);
 														$(this).css("transform", "translateX("+y+"px) translateY("+x+"px)");
 													});
+													**/
+													
+													var direction1Circle = $(".portfolioBorder1Circle").data("direction");
+													var direction2Circle = $(".portfolioBorder2Circle").data("direction");
+													var rect = $(".imagemJader")[0].getBoundingClientRect();
+													var rectXCentro = (rect.right - rect.left) / 2 + rect.left;
+													var rectYCentro = (rect.bottom - rect.top) / 2 + rect.top;
+													
+													var posicaoMouse1Circle = ((event.pageX - rectXCentro) * 100) / window.innerWidth;
+													var posicaoMouse2Circle = ((event.pageY - rectYCentro) * 100) / window.innerHeight;
+													
+													var circle1 = Math.round(posicaoMouse1Circle * (direction1Circle / 100));
+													var circle2 = Math.round(posicaoMouse2Circle * (direction2Circle / 100));
+													console.log(posicaoMouse1Circle, circle1, circle2);
+													$(".portfolioBorder1Circle").css("rotate", circle1+"deg");
+													$(".portfolioBorder2Circle").css("rotate", circle2+"deg");
 												});
 											</script>
 										</div>
