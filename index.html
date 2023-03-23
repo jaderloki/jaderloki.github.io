@@ -101,6 +101,7 @@
 												height: 100%;
 												width: 100%;
 												z-index: 11;
+												transition: 0.25s;
 											" data-parallax="7.5">
 												<img src="portfolioBorder1Orange.png" class="img-fluid">
 											</div>
@@ -110,6 +111,7 @@
 												height: 100%;
 												width: 100%;
 												z-index: 11;
+												transition: 0.25s;
 											" data-parallax="-3">
 												<img src="portfolioBorder2Orange.png" class="img-fluid">
 											</div>
@@ -119,6 +121,7 @@
 												height: 100%;
 												width: 100%;
 												z-index: 11;
+												transition: 0.25s;
 											" data-parallax="4.5">
 												<img src="portfolioBorder1White.png" class="img-fluid">
 											</div>
@@ -128,10 +131,15 @@
 												height: 100%;
 												width: 100%;
 												z-index: 11;
+												transition: 0.25s;
 											" data-parallax="-2">
 												<img src="portfolioBorder2White.png" class="img-fluid">
 											</div>
 											<script>
+												$(document).on("mousewheel", function(){
+													$(".portfolioBorder ").css("transform", "translateX(0px) translateY(0px)");
+												});
+												
 												$(document).on("mousemove", function(){
 													$(".portfolioBorder").each(function(){
 														var position = $(this).data("parallax");
@@ -184,34 +192,64 @@
 							</div>
 						</div>
 					</div>
-					<div class="row vh-100">
+					<div class="row">
 						<div class="col-8 mx-auto bg-warning border border-5 position-relative" style="
 							border-color: #212529 !important;
 						">
 							<i class="position-absolute fa-solid fa-star fa-rotate-180 fa-2x" style="
 								color: #212529;
-								top: -4%;
-								left: -3%;
+								top: -29px;
+								left: -31px;
 							"></i>
-							<div class="row h-100">
+							<div class="row">
 								<div class="col">
 									<div class="row position-relative overflow-hidden h-100">
 										<div class="col-auto mx-auto mt-2">
 											<div class="row">
-												<div class="col-auto h5 text-white border-1 border-end border-white" style="
-													z-index: 15;
-												">
-													PHP Developer
+												<div class="col-auto mx-auto">
+													<div class="row">
+														<div class="col-auto h5 text-white border-1 border-end border-white" style="
+															z-index: 15;
+														">
+															PHP Developer
+														</div>
+														<div class="col-auto h5 text-white border-1 border-start border-end border-white" style="
+															z-index: 15;
+														">
+															Javascript
+														</div>
+														<div class="col-auto h5 text-white border-1 border-start border-white" style="
+															z-index: 15;
+														">
+															CSS
+														</div>
+													</div>
 												</div>
-												<div class="col-auto h5 text-white border-1 border-start border-end border-white" style="
-													z-index: 15;
-												">
-													Javascript
+											</div>
+											<div class="row position-relative" style="
+												top: -10%;
+											">
+												<div class="col-6">
+													<div style="
+														float: right;
+														shape-outside: polygon(36.5vh 100%, 0% 0, 100% 0);
+														width: 14vw;
+														height: 200px;
+													">
+													
+													</div>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultricies purus nec lorem luctus venenatis. Morbi fermentum accumsan ante vitae egestas. Nunc maximus eget eros ac maximus. In sagittis orci sed tincidunt pharetra. Etiam volutpat laoreet sagittis. Ut eu euismod ante, a mattis augue. Maecenas pretium a dolor et consequat.
 												</div>
-												<div class="col-auto h5 text-white border-1 border-start border-white" style="
-													z-index: 15;
-												">
-													CSS
+												<div class="col-6">
+													<div style="
+														float: left;
+														shape-outside: polygon(-7.5vh 100%, 0% 0, 100% 0);
+														width: 14vw;
+														height: 200px;
+													">
+													
+													</div>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultricies purus nec lorem luctus venenatis. Morbi fermentum accumsan ante vitae egestas. Nunc maximus eget eros ac maximus. In sagittis orci sed tincidunt pharetra. Etiam volutpat laoreet sagittis. Ut eu euismod ante, a mattis augue. Maecenas pretium a dolor et consequat.
 												</div>
 											</div>
 										</div>
